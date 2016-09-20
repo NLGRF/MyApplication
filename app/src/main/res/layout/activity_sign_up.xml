@@ -62,14 +62,12 @@
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon"
                 android:id="@+id/imageView"
-                android:src="@drawable/question_man"
-                android:layout_weight="1" />
+                android:src="@drawable/question_man" />
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,8 +84,14 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="New RadioButton"
+                        android:text="Male"
                         android:id="@+id/radioButton" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:id="@+id/radioButton2" />
                 </RadioGroup>
             </LinearLayout>
         </LinearLayout>
