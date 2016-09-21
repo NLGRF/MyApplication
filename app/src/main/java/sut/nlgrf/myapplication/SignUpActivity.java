@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
         passwordEditText = (EditText) findViewById(R.id.editText5);
         maleRadioButton = (RadioButton) findViewById(R.id.radioButton);
         femaleRadioButton = findViewById(R.id.radioButton2);
-        
+
 
     }   //Main Method
 
@@ -50,9 +50,10 @@ public class SignUpActivity extends AppCompatActivity {
             MyAlert myAlert = new MyAlert(this, R.drawable.rat48,"มีช่องว่าง","กรุณาใส่ข้อมูลให้ครบ");
             myAlert.myDialog();
 
-        } else if (!()) {
+        } else if (!(maleRadioButton.isChecked() || femaleRadioButton.isChecked())) {
             //Non Check
-
+            MyAlert myAlert = new MyAlert(this, R.drawable.rat48,"ยังไม่เลือก Gender","กรุณาเลือก Gender");
+            myAlert.myDialog();
         }
 
 
