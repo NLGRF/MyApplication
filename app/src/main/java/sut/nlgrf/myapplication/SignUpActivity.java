@@ -2,6 +2,8 @@ package sut.nlgrf.myapplication;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -65,6 +67,15 @@ public class SignUpActivity extends AppCompatActivity {
             imagePathString = MyFindPath(uri);
             Log.d("MyApplication", "imagePathString ==>" + imagePathString);
 
+            //Setup ImageView
+            try {
+
+                Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
+                imageView.setImageBitmap(bitmap);
+
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
 
         } // if
     } // onActivityResult
