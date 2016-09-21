@@ -63,6 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
             //Find Path of Image
             Uri uri = data.getData();
             imagePathString = MyFindPath(uri);
+            Log.d("MyApplication", "imagePathString ==>" + imagePathString);
 
 
         } // if
@@ -75,8 +76,16 @@ public class SignUpActivity extends AppCompatActivity {
         String[] strings = {MediaStore.Images.Media.DATA};
 
         Cursor cursor = getContentResolver().query(uri, strings, null, null, null);
-        if () {
+        if (cursor != null) {
+
+            cursor.moveToFirst();
+            int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            strResult = cursor.getString(index);
+
         } else {
+
+            strResult = uri.getPath();
+
         }
 
 
