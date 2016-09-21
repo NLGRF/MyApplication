@@ -1,6 +1,9 @@
 package sut.nlgrf.myapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +17,7 @@ public class SignUpActivity extends AppCompatActivity {
     //Explicit การประกาศตัวแปร
     private EditText nameEditText, addressEditText, phoneEditText, userEditText, passwordEditText;
     private String nameString, addressString, phoneString, userString, passwordString, genderString,
-            imageString;
+            imageString, imagePathString, imageNameString;
     private RadioButton maleRadioButton, femaleRadioButton;
     private ImageView imageView;
 
@@ -54,12 +57,31 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if ((requestCode == 1) && (requestCode == RESULT_OK)) {
+        if ((requestCode == 1) && (resultCode == RESULT_OK)) {
             Log.d("MyApplication", "Result ==> Success");
+
+            //Find Path of Image
+            Uri uri = data.getData();
+            imagePathString = MyFindPath(uri);
 
 
         } // if
     } // onActivityResult
+
+    private String MyFindPath(Uri uri) {
+
+        String strResult = null;
+
+        String[] strings = {MediaStore.Images.Media.DATA};
+
+        Cursor cursor = getContentResolver().query(uri, strings, null, null, null);
+        if () {
+        } else {
+        }
+
+
+        return strResult;
+    }
 
     public void clickSignUpSign(View view) {
 
