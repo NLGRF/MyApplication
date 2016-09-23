@@ -1,5 +1,6 @@
 package sut.nlgrf.myapplication;
 
+
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -14,16 +15,18 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable(){
+        handler.postDelayed(new Runnable() {
             @Override
-            public void run(){
+            public void run() {
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                finish();
             }
-        },8000);
+        }, 8000);
 
         //Sound Effect
-        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(),R.raw.intro_tata);
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.intro_tata);
         mediaPlayer.start();
 
-    }   //Main Method
-}   //Main Class
+    }   // Main Method
+
+}   // Main Class
